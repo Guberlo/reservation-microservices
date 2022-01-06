@@ -1,0 +1,32 @@
+{
+  "gcGatewayApp": {
+    "reservationService": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service",
+        "createOrEditLabel": "Create or edit a Service",
+        "notFound": "No Services found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "duration": "Duration",
+      "price": "Price",
+      "reservation": "Reservation"
+    }
+  },
+  "reservationApp": {
+    "reservationService": {
+      "created": "A new Service is created with identifier {{ param }}",
+      "updated": "A Service is updated with identifier {{ param }}",
+      "deleted": "A Service is deleted with identifier {{ param }}"
+    }
+  }
+}

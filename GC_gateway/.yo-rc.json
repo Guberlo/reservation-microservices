@@ -1,0 +1,61 @@
+{
+  "generator-jhipster": {
+    "authenticationType": "oauth2",
+    "clientFramework": "react",
+    "serverPort": "8080",
+    "serviceDiscoveryType": "eureka",
+    "skipUserManagement": true,
+    "withAdminUi": true,
+    "baseName": "GC_gateway",
+    "buildTool": "gradle",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": ["en"],
+    "messageBroker": false,
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "enableGradleEnterprise": false,
+    "gradleEnterpriseHost": "",
+    "reactive": true,
+    "applicationType": "gateway",
+    "packageName": "com.giveitacut.gateway",
+    "packageFolder": "com/giveitacut/gateway",
+    "jhipsterVersion": "7.5.0",
+    "clientPackageManager": "npm",
+    "dtoSuffix": "DTO",
+    "entitySuffix": "",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "applicationIndex": 0,
+    "applications": {
+      "users": {
+        "serverPort": "8081",
+        "applicationIndex": 1
+      },
+      "reservation": {
+        "serverPort": "8082",
+        "applicationIndex": 2
+      }
+    },
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "blueprints": [],
+    "otherModules": [],
+    "pages": [],
+    "nativeLanguage": "en",
+    "creationTimestamp": 1641491773947,
+    "monorepository": true,
+    "skipCommitHook": true,
+    "jwtSecretKey": "NzZmNTM5N2U0NmIwYzMzNzU3M2EyNmU2NGM4ZDkyNTYyNjY1ZTc3MmE3OWJkNzg5NjNmZWY4Mzg2MzZlOWVhNjNlYzY0ZmE3NDhiNTg1YzZmOTYzMjdkYTQyMTU5MTkyMjlkMzRmMWM0NTZkNjNjOGZjNjgxZmZlY2NlNTY4MzE=",
+    "devServerPort": 9060,
+    "entities": ["Service", "Customer", "Reservation", "Employee"],
+    "lastLiquibaseTimestamp": 1641492013000
+  }
+}

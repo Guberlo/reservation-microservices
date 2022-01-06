@@ -1,0 +1,49 @@
+{
+  "name": "Service",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "reservation",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "service",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["GC_gateway", "reservation"],
+  "microserviceName": "reservation",
+  "clientRootFolder": "reservation",
+  "databaseType": "sql",
+  "changelogDate": "20220106175713"
+}
