@@ -1,0 +1,43 @@
+{
+  "name": "Reservation",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "service",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "service",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "reservation",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["GC_gateway", "reservation"],
+  "microserviceName": "reservation",
+  "clientRootFolder": "reservation",
+  "databaseType": "sql",
+  "changelogDate": "20220106175813"
+}
