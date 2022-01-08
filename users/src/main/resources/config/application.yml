@@ -34,8 +34,8 @@ eureka:
     instance-info-replication-interval-seconds: 10
     registry-fetch-interval-seconds: 10
   instance:
-    appname: reservation
-    instanceId: reservation:${spring.application.instance-id:${random.value}}
+    appname: users
+    instanceId: users:${spring.application.instance-id:${random.value}}
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
     status-page-url-path: ${management.endpoints.web.base-path}/info
@@ -123,7 +123,7 @@ management:
 
 spring:
   application:
-    name: reservation
+    name: users
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file
@@ -143,13 +143,13 @@ spring:
     allow-bean-definition-overriding: true
   task:
     execution:
-      thread-name-prefix: reservation-task-
+      thread-name-prefix: users-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: reservation-scheduling-
+      thread-name-prefix: users-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -191,7 +191,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'reservationApp'
+    name: 'usersApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #   allowed-origins: "http://localhost:8100,http://localhost:9000"
@@ -201,12 +201,12 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: reservation@localhost
+    from: users@localhost
   api-docs:
     default-include-pattern: ${server.servlet.context-path:}/api/**
     management-include-pattern: ${server.servlet.context-path:}/management/**
-    title: Reservation API
-    description: Reservation API documentation
+    title: Users API
+    description: Users API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

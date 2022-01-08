@@ -1,0 +1,94 @@
+
+application {
+  config {
+    baseName GC_gateway,
+    reactive true,
+    applicationType gateway,
+    packageName com.giveitacut.gateway,
+    authenticationType oauth2,
+    buildTool gradle,
+    prodDatabaseType postgresql,
+    clientFramework react,
+    serviceDiscoveryType eureka
+  }
+  entities Customer, Employee, Reservation, Service
+}
+
+application {
+  config {
+    baseName users,
+    reactive true,
+    applicationType microservice,
+    packageName com.giveitacut.users,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    buildTool gradle,
+    enableHibernateCache false,
+    serverPort 8081,
+    serviceDiscoveryType eureka
+  }
+  entities Customer, Employee
+}
+
+application {
+  config {
+    baseName reservation,
+    reactive true,
+    applicationType microservice,
+    packageName com.giveitacut.reservation,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    buildTool gradle,
+    enableHibernateCache false,
+    serverPort 8082,
+    serviceDiscoveryType eureka
+  }
+  entities Reservation, Service
+}
+
+entity Customer {
+	name String required maxlength(20),
+    surname String required maxlength(20),
+    phone String required,
+    email String required,
+    gender String 
+}
+
+entity Reservation {
+	date LocalDate required,
+    startTime ZonedDateTime required,
+    endTime ZonedDateTime required,
+}
+
+entity Employee {
+	name String required maxlength(20),
+    surname String required maxlength(20),
+    phone String required
+}
+
+entity Service {
+	name String required maxlength(100),
+    description String required maxlength(255),
+    duration Long required,
+    price Float required
+}
+
+relationship OneToOne {
+	Customer{user(login)} to User,
+    Employee{user(login)} to User
+}
+
+relationship ManyToMany {
+	Reservation{service(name)} to Service{reservation}
+}
+
+paginate Reservation, Service, Employee, Customer with pagination
+
+microservice Customer, Employee with users
+microservice Reservation, Service with reservation
+
+deployment {
+	deploymentType docker-compose
+    appsFolders [gateway, users, reservation]
+}
+    
